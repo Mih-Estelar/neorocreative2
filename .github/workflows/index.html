@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Néoro Creative ✿</title>
+
+<!-- Fontes corrigidas -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azul:#4a6fd8;
+  --azul-suave:#7d97e8;
+  --azul-claro:#eef3ff;
+  --azul-fundo:#f4f7ff;
+  --rosa:#f27d93;
+  --rosa-suave:#ffb9c6;
+  --rosa-claro:#fff0f3;
+  --branco:#ffffff;
+  --texto:#4b5265;
+  --texto-suave:#7a8194;
+  --sombra:0 14px 34px rgba(122,129,148,.12);
+  --sombra-fofa:0 20px 45px rgba(242,125,147,.18);
+  --raio:30px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Quicksand", sans-serif;
+  color:var(--texto);
+  background:
+    radial-gradient(circle at 8% 12%, #ffeef2 0, transparent 30%),
+    radial-gradient(circle at 92% 8%, #eaf1ff 0, transparent 32%),
+    radial-gradient(circle at 50% 100%, #fff4f7 0, transparent 40%),
+    var(--azul-fundo);
+  line-height:1.75;
+}
+
+h1,h2,h3,.logo,.botao,.tag,.tab-btn{
+  font-family:"Baloo 2", sans-serif;
+}
+
+/* MENU */
+header{
+  position:fixed;
+  top:16px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  width:min(1080px, calc(100% - 32px));
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:999px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  box-shadow:var(--sombra);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--azul);
+  font-size:21px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.logo-mark{
+  width:40px;
+  height:40px;
+  border-radius:16px;
+  background:linear-gradient(135deg, var(--azul-suave), var(--rosa));
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:18px;
+  box-shadow:0 8px 18px rgba(242,125,147,.30);
+}
+
+.logo span{
+  color:var(--rosa);
+}
+
+nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.tab-btn{
+  border:2px solid transparent;
+  background:transparent;
+  color:var(--texto-suave);
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.tab-btn:hover{
+  color:var(--azul);
+  background:var(--azul-claro);
+}
+
+.tab-btn.ativo{
+  background:linear-gradient(135deg, var(--azul-suave), var(--rosa));
+  color:#fff;
+  box-shadow:0 10px 22px rgba(242,125,147,.25);
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:150px 6% 90px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before,
+.hero::after{
+  position:absolute;
+  font-size:90px;
+  opacity:.25;
+  filter:blur(.3px);
+  pointer-events:none;
+}
+
+.hero::before{
+  content:"♡";
+  top:22%;
+  left:10%;
+  color:var(--rosa-suave);
+  transform:rotate(-15deg);
+}
+
+.hero::after{
+  content:"✿";
+  bottom:16%;
+  right:9%;
+  color:var(--azul-suave);
+  transform:rotate(12deg);
+}
+
+.hero-conteudo{
+  max-width:780px;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:calc(var(--raio) + 12px);
+  padding:52px 42px;
+  box-shadow:var(--sombra-fofa);
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--rosa-claro);
+  color:var(--rosa);
+  padding:8px 17px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(34px, 6vw, 56px);
+  line-height:1.15;
+  color:var(--azul);
+  margin-bottom:16px;
+}
+
+.hero h1 span{
+  color:var(--rosa);
+}
+
+.hero p{
+  font-size:17px;
+  color:var(--texto-suave);
+  margin-bottom:28px;
+}
+
+.hero-botoes{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* BOTÕES */
+.botao{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:15px;
+  transition:.25s;
+  border:2px solid transparent;
+}
+
+.botao.azul{
+  background:var(--azul-claro);
+  color:var(--azul);
+  border-color:#dbe5ff;
+}
+
+.botao.azul:hover{
+  background:var(--azul);
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+.botao.rosa{
+  background:var(--rosa-claro);
+  color:var(--rosa);
+  border-color:#ffd8e0;
+}
+
+.botao.rosa:hover{
+  background:var(--rosa);
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+.botao.branco{
+  background:#fff;
+  color:var(--azul);
+  border-color:#e6ecff;
+}
+
+.botao.branco:hover{
+  background:var(--rosa-claro);
+  color:var(--rosa);
+  transform:translateY(-3px);
+}
+
+/* ABAS */
+.aba{
+  display:none;
+  animation:aparecer .4s ease;
+}
+
+.aba.ativa{
+  display:block;
+}
+
+@keyframes aparecer{
+  from{opacity:0; transform:translateY(18px);}
+  to{opacity:1; transform:none;}
+}
+
+/* SEÇÕES */
+section.bloco{
+  padding:80px 6%;
+}
+
+.cabecalho{
+  max-width:900px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+
+.cabecalho .tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  color:var(--rosa);
+  border:1px solid #ffd8e0;
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:16px;
+  box-shadow:var(--sombra);
+}
+
+.cabecalho h2{
+  font-size:clamp(30px, 5vw, 44px);
+  color:var(--azul);
+  margin-bottom:12px;
+}
+
+.cabecalho p{
+  color:var(--texto-suave);
+  font-size:17px;
+}
+
+/* HISTÓRIA */
+.card-historia{
+  max-width:950px;
+  margin:auto;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--raio);
+  padding:46px;
+  box-shadow:var(--sombra);
+}
+
+.card-historia h3{
+  color:var(--rosa);
+  font-size:24px;
+  margin:30px 0 10px;
+}
+
+.card-historia h3:first-of-type{
+  margin-top:0;
+}
+
+.destaque{
+  background:linear-gradient(135deg, var(--azul-claro), #fff);
+  border:1px solid #dbe5ff;
+  border-left:8px solid var(--azul-suave);
+  padding:20px 22px;
+  border-radius:24px;
+  margin:20px 0;
+}
+
+.citacao{
+  background:var(--rosa-claro);
+  border-left:8px solid var(--rosa-suave);
+  padding:18px 22px;
+  border-radius:24px;
+  margin:16px 0;
+  font-style:italic;
+  color:#7c5a66;
+}
+
+.mensagem{
+  background:linear-gradient(135deg, #fff, var(--rosa-claro));
+  border:1px solid #ffd8e0;
+  border-radius:var(--raio);
+  padding:32px;
+  margin-top:30px;
+}
+
+.assinatura{
+  font-family:"Baloo 2", sans-serif;
+  font-weight:700;
+  color:var(--rosa);
+  margin-top:12px;
+}
+
+/* GRADE */
+.grid{
+  max-width:1120px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:24px;
+}
+
+/* MEMBROS */
+.membro{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--raio);
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.membro:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--sombra-fofa);
+}
+
+.membro-foto{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:linear-gradient(160deg, var(--azul-claro), var(--rosa-claro));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.membro-foto img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.45s;
+}
+
+.membro:hover .membro-foto img{
+  transform:scale(1.06);
+}
+
+.membro-foto::after{
+  content:"♡";
+  position:absolute;
+  right:16px;
+  bottom:12px;
+  color:rgba(255,255,255,.9);
+  font-size:24px;
+  text-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.membro-info{
+  padding:22px;
+  text-align:center;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.cargo{
+  display:inline-block;
+  background:var(--azul-claro);
+  color:var(--azul);
+  font-size:11px;
+  font-weight:700;
+  padding:6px 13px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+
+.membro-info h3{
+  font-size:23px;
+  color:var(--azul);
+  margin-bottom:6px;
+}
+
+.membro-info p{
+  font-size:14px;
+  color:var(--texto-suave);
+  flex:1;
+  margin-bottom:16px;
+}
+
+.redes{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.redes .botao{
+  padding:9px 15px;
+  font-size:12px;
+}
+
+/* PROJETOS */
+.projeto{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--raio);
+  padding:30px;
+  box-shadow:var(--sombra);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.projeto:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--sombra-fofa);
+}
+
+.projeto img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:16px;
+  background:var(--azul-claro);
+}
+
+.projeto .tag{
+  display:inline-block;
+  background:var(--rosa-claro);
+  color:var(--rosa);
+  font-size:12px;
+  font-weight:700;
+  padding:6px 14px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+
+.projeto h3{
+  font-size:23px;
+  color:var(--azul);
+  margin-bottom:10px;
+}
+
+.projeto p{
+  font-size:15px;
+  color:var(--texto-suave);
+  flex:1;
+  margin-bottom:20px;
+}
+
+/* NOVIDADES */
+.noticia{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--raio);
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+}
+
+.noticia:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--sombra-fofa);
+}
+
+.noticia img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:var(--azul-claro);
+}
+
+.noticia-conteudo{
+  padding:24px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.data{
+  color:var(--rosa);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.noticia-conteudo h3{
+  font-size:22px;
+  color:var(--azul);
+  margin-bottom:8px;
+}
+
+.noticia-conteudo p{
+  font-size:15px;
+  color:var(--texto-suave);
+  flex:1;
+  margin-bottom:18px;
+}
+
+/* RODAPÉ */
+footer{
+  background:linear-gradient(135deg, var(--azul-claro), var(--rosa-claro));
+  color:var(--texto);
+  text-align:center;
+  padding:50px 6%;
+  border-top:1px solid rgba(255,255,255,.8);
+}
+
+footer .logo{
+  justify-content:center;
+  margin-bottom:12px;
+}
+
+footer p{
+  color:var(--texto-suave);
+  font-size:14px;
+}
+
+@media(max-width:720px){
+  header{
+    top:10px;
+    padding:10px 14px;
+  }
+
+  .hero{
+    padding-top:140px;
+  }
+
+  .hero-conteudo{
+    padding:36px 24px;
+  }
+
+  .card-historia{
+    padding:28px;
+  }
+
+  section.bloco{
+    padding:60px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#inicio" class="logo">
+    <div class="logo-mark">♡</div>
+    Néoro <span>Creative</span>
+  </a>
+
+  <nav>
+    <button class="tab-btn ativo" onclick="abrirAba('inicio', this)">Início</button>
+    <button class="tab-btn" onclick="abrirAba('membros', this)">Membros</button>
+    <button class="tab-btn" onclick="abrirAba('projetos', this)">Projetos</button>
+    <button class="tab-btn" onclick="abrirAba('novidades', this)">Novidades</button>
+  </nav>
+</header>
+
+
+<!-- ABA INÍCIO -->
+<div id="inicio" class="aba ativa">
+
+  <section class="hero">
+    <div class="hero-conteudo">
+      <div class="hero-tag">♡ Criado com carinho desde 2025</div>
+
+      <h1>Bem-vindo à <span>Néoro Creative</span></h1>
+
+      <p>
+        Um grupinho cheio de criatividade, amizade e ideias.
+        Aqui, cada projeto e cada história fazem parte da nossa jornada.
+      </p>
+
+      <div class="hero-botoes">
+        <a href="#" class="botao rosa" onclick="abrirAba('membros', document.querySelectorAll('.tab-btn')[1]); return false;">Conhecer os membros</a>
+        <a href="#" class="botao azul" onclick="abrirAba('projetos', document.querySelectorAll('.tab-btn')[2]); return false;">Ver projetos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="cabecalho">
+      <div class="tag">♡ Nossa história</div>
+      <h2>De uma ideia entre amigos a um espaço criativo</h2>
+      <p>A Néoro começou pequena, mas cresceu com a união, o respeito e a criatividade de muitas pessoas.</p>
+    </div>
+
+    <div class="card-historia">
+          <h3>🌱 O início</h3>
+      <p>
+        Nossa história começou em 2025, quando Michelle e seu amigo do Discord, Sparkle_atv, se conheceram por meio de um projeto de VTubers chamado Veestars.
+      </p>
+      <p>
+        Na época, Michelle não foi aceita na agência, enquanto Sparkle_atv conseguiu uma vaga. Mesmo assim, os caminhos dos dois acabaram se cruzando e dando início a algo muito maior.
+      </p>
+      <p>
+        Eles trocaram suas primeiras mensagens no dia <strong>12/06/2025, às 06:35</strong>. Pouco tempo depois, a agência da qual Sparkle_atv fazia parte foi hackeada, o que acabou abrindo espaço para novas ideias e possibilidades.
+      </p>
+      <p>
+        Em <strong>14/06/2025</strong>, uma conversa entre os dois demonstrava o desejo de começar algo novo:
+      </p>
+
+      <div class="citacao">
+        <strong>Starkiller:</strong> É.<br>
+        <strong>Sparkle_atv:</strong> Se quer criar uma agência, já que a agência foi de f…<br>
+        <strong>Starkiller:</strong> Nem sei como criar… Deve ser difícil… Mas seria legal criar um grupo VTuber. Que pena que ele morreu… Tava ansiosa para participar, kskks.<br>
+        <strong>Sparkle_atv:</strong> Acho que só pra maiores de 18 anos agora.<br>
+        <strong>Starkiller:</strong> É… o pior que faltava pouco para fazer 18.<br>
+        <strong>Sparkle_atv:</strong> É difícil.<br>
+        <strong>Starkiller:</strong> Sim.<br>
+        <strong>Sparkle_atv:</strong> Mas podemos criar só nós dois. Eu tenho 200 reais e tô juntando mais.<br>
+        <strong>Starkiller:</strong> Dá para criar um pequeno grupo de início… Mas precisa de um nome.<br>
+        <strong>Sparkle_atv:</strong> Néoro – Agência de VTubers iniciantes.<br>
+        <strong>Starkiller:</strong> Gostei do nome. Vou criar um servidor e aí nós personalizamos.<br>
+        <strong>Sparkle_atv:</strong> Sim!
+      </div>
+
+      <p>
+        Foi assim que surgiu a ideia da Néoro: um pequeno projeto que começou com uma conversa entre dois amigos e o desejo de criar oportunidades para VTubers iniciantes.
+      </p>
+
+      <h3>⭐ O nascimento da agência</h3>
+      <p>
+        Com aquela conversa, nasceu a <strong>Néoro – Agência de VTubers Iniciantes</strong>.
+      </p>
+      <p>
+        Inicialmente, o grupo começou com quatro membros. Apesar da empolgação e das expectativas, o projeto também enfrentou dificuldades, e acabamos perdendo um dos integrantes.
+      </p>
+      <p>
+        Com o passar do tempo, Sparkle_atv começou a se afastar e chegou a cogitar desistir de ser VTuber.
+      </p>
+
+      <div class="citacao">
+        <strong>Sparkle_atv — 19/09/2025, às 00:48:</strong><br>
+        "@Starkiller eu tô querendo desistir de ser VTuber."
+      </div>
+
+      <p>
+        Mesmo diante dessas dificuldades, Michelle decidiu não abandonar o projeto.
+      </p>
+      <p>
+        No dia <strong>19/09/2025</strong>, ela fez uma postagem simples anunciando um recomeço. No dia seguinte, publicou um vídeo apresentando oficialmente a agência.
+      </p>
+      <p>
+        A partir daquele momento, a Néoro começou uma nova etapa, agora com Michelle assumindo a responsabilidade de continuar o projeto.
+      </p>
+
+      <h3>🌟 Crescimento e consolidação</h3>
+      <p>
+        Com dedicação, paciência e muitas ideias, a agência começou a crescer.
+      </p>
+      <p>
+        Novos VTubers chegaram, algumas pessoas conhecidas se juntaram ao projeto e outras apareceram trazendo novas experiências, talentos e amizades.
+      </p>
+      <p>
+        Ao longo dessa caminhada, tivemos pessoas que ajudaram bastante, participaram das atividades e contribuíram para que a Néoro se tornasse algo maior do que sua ideia inicial.
+      </p>
+      <p>
+        Também houve mudanças na equipe, pessoas que seguiram outros caminhos e integrantes que permaneceram ao nosso lado.
+      </p>
+      <p>
+        Para dar mais visibilidade ao projeto, Michelle criou um site simples, desenvolvido com muito carinho e dedicação, para apresentar a agência, seus integrantes e suas atividades.
+      </p>
+      <p>
+        Mesmo sendo um projeto pequeno, cada atualização, publicação e conquista representava mais um passo para construir aquilo que imaginávamos desde o início.
+      </p>
+
+      <h3>💫 2026 — Uma nova fase</h3>
+      <p>
+        Em 2026, a Néoro voltou com novidades!
+      </p>
+      <p>
+        Novos membros chegaram, antigos integrantes retornaram e algumas pessoas que já faziam parte da nossa história continuaram contribuindo para o projeto.
+      </p>
+      <p>
+        Entre aqueles que permanecem, temos <strong>Puki</strong>, que continua conosco até hoje, além de <strong>Michelle</strong>, que segue como criadora e responsável pelo projeto.
+      </p>
+      <p>
+        Com o passar do tempo, percebemos que a Néoro já não precisava ser apenas uma agência.
+      </p>
+      <p>
+        Nossa proposta mudou, assim como nossa forma de enxergar o grupo.
+      </p>
+      <p>
+        Por isso, deixamos para trás o nome <em>Néoro Agência</em> e passamos a utilizar <strong>Néoro Creative</strong>.
+      </p>
+      <p>
+        Hoje, não somos apenas uma agência que reúne VTubers. Somos um grupo unido, formado por pessoas com diferentes experiências, ideias e projetos.
+      </p>
+      <p>
+        Temos VTubers, criadores de PNGs e até pessoas que fazem parte de outras comunidades. Não precisamos que todos tenham exatamente o mesmo tipo de conteúdo ou sigam o mesmo caminho para fazer parte desse espaço.
+      </p>
+      <p>
+        O mais importante é a <strong>união</strong>, o <strong>respeito</strong> e a vontade de compartilhar aquilo que fazemos.
+      </p>
+
+      <div class="destaque">
+        <strong>📢 O que somos atualmente?</strong>
+        <br><br>
+        A Néoro Creative é um grupo que busca dar visibilidade aos seus integrantes e aos projetos que cada um desenvolve.
+        <br><br>
+        Nosso canal será utilizado para compartilhar:
+        <ul style="margin: 10px 0 0 20px; padding: 0;">
+          <li>Notícias sobre nossos integrantes.</li>
+          <li>Curiosidades sobre os membros e seus personagens.</li>
+          <li>Novidades dos nossos projetos.</li>
+          <li>Apresentações de novos integrantes.</li>
+          <li>Atualizações sobre atividades e acontecimentos do grupo.</li>
+          <li>Conteúdos relacionados às nossas comunidades e criações.</li>
+        </ul>
+        <br>
+        Queremos que as pessoas conheçam não apenas os projetos, mas também quem está por trás deles.
+        <br><br>
+        A Néoro Creative não é apenas um nome ou um servidor: é uma história construída por várias pessoas.
+      </div>
+
+      <div class="mensagem">
+        <h3 style="margin-top:0;">💜 Uma mensagem da criadora</h3>
+
+        <p>
+          Quando olho para trás, vejo o quanto tudo mudou.
+        </p>
+        <p>
+          A Néoro começou com uma conversa entre duas pessoas que tinham vontade de criar alguma coisa juntas. Naquela época, eu não imaginava quantas pessoas conheceria, quantas amizades faria ou quantas experiências viveria por causa desse projeto.
+        </p>
+        <p>
+          Hoje, já estou com 19 anos e continuo aqui, acompanhando essa história que começou em 2025.
+        </p>
+        <p>
+          Foi muito bom conhecer tantas pessoas durante essa caminhada. Algumas participaram por pouco tempo, outras ficaram por mais tempo, algumas seguiram seus próprios caminhos e outras chegaram recentemente.
+        </p>
+        <p>
+          Independentemente de quanto tempo cada pessoa permaneceu, todas fizeram parte de algum capítulo dessa história.
+        </p>
+        <p>
+          Quero agradecer a todos que já participaram da Néoro, aos que ajudaram a construir o projeto, aos que permaneceram e aos que estão chegando agora.
+        </p>
+        <p>
+          Cada pessoa deixou alguma contribuição, seja uma ideia, uma ajuda, uma amizade ou simplesmente um momento que ficará guardado.
+        </p>
+        <p>
+          Não sabemos exatamente o que o futuro reserva para a Néoro Creative, mas sabemos que ela continuará sendo um espaço para compartilhar ideias, projetos e experiências.
+        </p>
+        <p>
+          De uma pequena ideia entre dois amigos, nasceu um projeto que conheceu muitas pessoas e passou por várias transformações.
+        </p>
+        <p>
+          E essa história ainda não acabou.
+        </p>
+
+        <p class="assinatura">— Michelle, criadora da Néoro Creative. 💜✨</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ABA MEMBROS -->
+<div id="membros" class="aba">
+
+  <section class="bloco">
+    <div class="cabecalho">
+      <div class="tag">♡ Nosso time</div>
+      <h2>Membros da Néoro</h2>
+      <p>Conheça os criadores que fazem parte da nossa história e acompanhe seus espaços.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- ORIEL -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Oriel.jpeg" alt="Foto do personagem Oriel">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Criador</span>
+          <h3>Oriel</h3>
+          <p>Criador da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao rosa" href="https://www.tiktok.com/@mih_estelar" target="_blank" rel="noopener">TikTok</a>
+            <a class="botao azul" href="https://www.youtube.com/@mih_estelar" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PUKI -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Puki.jpeg" alt="Foto do personagem Puki">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Veterano</span>
+          <h3>Puki</h3>
+          <p>Veterano da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao rosa" href="https://www.tiktok.com/@puki_ow" target="_blank" rel="noopener">TikTok</a>
+            <a class="botao azul" href="https://www.youtube.com/@PukiDragon" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ZEZE -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Zeze.jpeg" alt="Foto do personagem Zeze">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Veterano</span>
+          <h3>Zeze</h3>
+          <p>Veterano da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao azul" href="https://www.youtube.com/@zezeguimas" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SPACE -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Space.jpeg" alt="Foto do personagem Space">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Novo membro</span>
+          <h3>Space</h3>
+          <p>Novo integrante da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao azul" href="https://www.youtube.com/@spacelegacy143" target="_blank" rel="noopener">YouTube</a>
+            <a class="botao rosa" href="https://www.tiktok.com/@novo_spacelegacy?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- YUKI -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Yuki.jpeg" alt="Foto do personagem Yuki">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Novo membro</span>
+          <h3>Yuki</h3>
+          <p>Novo integrante da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao azul" href="https://www.youtube.com/@YukiSantoro-f2d" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DRAGON -->
+      <article class="membro">
+        <div class="membro-foto">
+          <img src="Dragon.jpeg" alt="Foto do personagem Dragon">
+        </div>
+        <div class="membro-info">
+          <span class="cargo">♡ Novo membro</span>
+          <h3>Dragon</h3>
+          <p>Novo integrante da Néoro Creative.</p>
+
+          <div class="redes">
+            <a class="botao azul" href="https://www.youtube.com/@DragonXVtuber" target="_blank" rel="noopener">YouTube</a>
+            <a class="botao rosa" href="https://www.tiktok.com/@dragonxvtuber" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- ABA PROJETOS -->
+<div id="projetos" class="aba">
+
+  <section class="bloco">
+    <div class="cabecalho">
+      <div class="tag">✿ Criações</div>
+      <h2>Projetos da Néoro</h2>
+      <p>Conheça os projetos, páginas e universos criados pelos membros do grupo.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="projeto">
+        <img src="Biblioteca.jpeg" alt="foto da capa do projeto">
+        <span class="tag">Projeto de Oriel</span>
+        <h3>Biblioteca VTuber</h3>
+        <p>Um espaço criado por Oriel para reunir conteúdos, recursos e informações relacionados a VTubers.</p>
+        <a class="botao azul" href="https://mih-estelar.github.io/bibliotecavtuber/" target="_blank" rel="noopener">Acessar projeto</a>
+      </article>
+
+      <article class="projeto">
+         <img src="Comissões.jpeg" alt="foto da capa do projeto">
+        <span class="tag">Projeto de Oriel</span>
+        <h3>Comissões</h3>
+        <p>Página de comissões de Oriel, com informações sobre serviços e trabalhos personalizados.</p>
+        <a class="botao rosa" href="https://mih-estelar.github.io/comiss-es/" target="_blank" rel="noopener">Acessar projeto</a>
+      </article>
+
+      <article class="projeto">
+        <img src="SpaceLegacy.jpeg" alt="foto da capa do projeto">
+        <span class="tag">Projeto de Space</span>
+        <h3>SpaceLegacy Studio Wiki</h3>
+        <p>Wiki do projeto SpaceLegacy Studio, criada para reunir informações e conteúdos do universo do Space.</p>
+        <a class="botao azul" href="https://sites.google.com/view/spacelegacy-studio-wiki/in%C3%ADcio" target="_blank" rel="noopener">Acessar projeto</a>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- ABA NOVIDADES -->
+<div id="novidades" class="aba">
+
+  <section class="bloco">
+    <div class="cabecalho">
+      <div class="tag">♡ Jornal Néoro</div>
+      <h2>Novidades</h2>
+      <p>As últimas atualizações, conquistas e acontecimentos dos membros da Néoro Creative.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="noticia">
+        <img src="https://placehold.co/900x506/eef3ff/4a6fd8?text=Foto+da+not%C3%ADcia" alt="Imagem da notícia">
+        <div class="noticia-conteudo">
+          <div class="data">♡ 30/10/2026</div>
+          <h3>Título da novidade</h3>
+          <p>Escreva aqui o texto da notícia: o que aconteceu, quem participou e por que é importante para a Néoro Creative.</p>
+          <a class="botao azul" href="#" target="_blank" rel="noopener">Ler mais</a>
+        </div>
+      </article>
+
+      <article class="noticia">
+        <img src="https://placehold.co/900x506/fff0f3/f27d93?text=Foto+da+not%C3%ADcia" alt="Imagem da notícia">
+        <div class="noticia-conteudo">
+          <div class="data">✿ 30/10/2026</div>
+          <h3>Novo projeto anunciado</h3>
+          <p>Use este card para anunciar estreias, novos vídeos, eventos, colaborações ou a chegada de novos integrantes.</p>
+          <a class="botao rosa" href="#" target="_blank" rel="noopener">Ler mais</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="logo">
+    <div class="logo-mark">♡</div>
+    Néoro <span>Creative</span>
+  </div>
+
+  <p><strong>Um espaço para compartilhar ideias, projetos e experiências.</strong></p>
+  <p>© 2026 Néoro Creative • Feito com 💜, ✨ e muito carinho.</p>
+</footer>
+
+<script>
+function abrirAba(id, botao){
+  document.querySelectorAll('.aba').forEach(function(aba){
+    aba.classList.remove('ativa');
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.classList.remove('ativo');
+  });
+
+  document.getElementById(id).classList.add('ativa');
+  botao.classList.add('ativo');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+
+</body>
+</html>
