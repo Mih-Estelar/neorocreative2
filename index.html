@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Néoro Creative ✿</title>
 
-<!-- Fontes corrigidas -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -134,7 +133,7 @@ nav{
   display:grid;
   place-items:center;
   text-align:center;
-  padding:150px 6% 90px;
+  padding:150px 6% 110px;
   position:relative;
   overflow:hidden;
 }
@@ -276,6 +275,34 @@ nav{
   to{opacity:1; transform:none;}
 }
 
+/* BANNER DOS MEMBROS */
+.banner-membros{
+  max-width:1180px;
+  margin:-70px auto 0;
+  padding:0 5%;
+  position:relative;
+  z-index:5;
+}
+
+.banner-card{
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:34px;
+  padding:14px;
+  box-shadow:var(--sombra-fofa);
+  overflow:hidden;
+}
+
+.banner-imagem{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  object-fit:cover;
+  aspect-ratio:16/7;
+  background:linear-gradient(160deg, var(--azul-claro), var(--rosa-claro));
+}
+
 /* SEÇÕES */
 section.bloco{
   padding:80px 6%;
@@ -342,6 +369,14 @@ section.bloco{
   padding:20px 22px;
   border-radius:24px;
   margin:20px 0;
+}
+
+.destaque ul{
+  margin:10px 0 16px 22px;
+}
+
+.destaque li{
+  margin-bottom:6px;
 }
 
 .citacao{
@@ -571,6 +606,111 @@ section.bloco{
   margin-bottom:18px;
 }
 
+/* FANARTS */
+.fanarts-grid{
+  max-width:1120px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+  gap:20px;
+}
+
+.fanart{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:var(--sombra);
+  cursor:zoom-in;
+  transition:.3s;
+}
+
+.fanart:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--sombra-fofa);
+}
+
+.fanart img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  transition:.45s;
+}
+
+.fanart:hover img{
+  transform:scale(1.06);
+}
+
+.fanart-info{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:40px 16px 14px;
+  background:linear-gradient(to top, rgba(255,255,255,.95), transparent);
+  text-align:center;
+  opacity:0;
+  transition:.3s;
+}
+
+.fanart:hover .fanart-info{
+  opacity:1;
+}
+
+.fanart-info strong{
+  display:block;
+  font-family:"Baloo 2", sans-serif;
+  color:var(--azul);
+  font-size:16px;
+}
+
+.fanart-info span{
+  font-size:12px;
+  color:var(--texto-suave);
+}
+
+/* JANELA DA FANART */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(40,45,65,.75);
+  backdrop-filter:blur(8px);
+  display:none;
+  place-items:center;
+  padding:24px;
+}
+
+.lightbox.ativo{
+  display:grid;
+}
+
+.lightbox img{
+  max-width:min(90vw, 760px);
+  max-height:82vh;
+  border-radius:26px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  border:6px solid #fff;
+}
+
+.lightbox-fechar{
+  position:absolute;
+  top:20px;
+  right:24px;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:var(--rosa);
+  font-size:22px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:var(--sombra);
+}
+
 /* RODAPÉ */
 footer{
   background:linear-gradient(135deg, var(--azul-claro), var(--rosa-claro));
@@ -611,6 +751,10 @@ footer p{
   section.bloco{
     padding:60px 5%;
   }
+
+  .banner-imagem{
+    aspect-ratio:16/10;
+  }
 }
 </style>
 </head>
@@ -618,7 +762,7 @@ footer p{
 <body>
 
 <header>
-  <a href="#inicio" class="logo">
+  <a href="#" class="logo" onclick="abrirAba('inicio', document.querySelectorAll('.tab-btn')[0]); return false;">
     <div class="logo-mark">♡</div>
     Néoro <span>Creative</span>
   </a>
@@ -628,9 +772,9 @@ footer p{
     <button class="tab-btn" onclick="abrirAba('membros', this)">Membros</button>
     <button class="tab-btn" onclick="abrirAba('projetos', this)">Projetos</button>
     <button class="tab-btn" onclick="abrirAba('novidades', this)">Novidades</button>
+    <button class="tab-btn" onclick="abrirAba('fanarts', this)">🎨 Fanarts</button>
   </nav>
 </header>
-
 
 <!-- ABA INÍCIO -->
 <div id="inicio" class="aba ativa">
@@ -653,6 +797,17 @@ footer p{
     </div>
   </section>
 
+  <!-- BANNER DOS MEMBROS -->
+  <section class="banner-membros">
+    <div class="banner-card">
+      <img 
+        src="banner-neoro.jpeg" 
+        alt="Banner com os desenhos de todos os membros da Néoro Creative"
+        class="banner-imagem"
+      >
+    </div>
+  </section>
+
   <section class="bloco">
     <div class="cabecalho">
       <div class="tag">♡ Nossa história</div>
@@ -661,16 +816,20 @@ footer p{
     </div>
 
     <div class="card-historia">
-          <h3>🌱 O início</h3>
+      <h3>🌱 O início</h3>
+
       <p>
         Nossa história começou em 2025, quando Michelle e seu amigo do Discord, Sparkle_atv, se conheceram por meio de um projeto de VTubers chamado Veestars.
       </p>
+
       <p>
         Na época, Michelle não foi aceita na agência, enquanto Sparkle_atv conseguiu uma vaga. Mesmo assim, os caminhos dos dois acabaram se cruzando e dando início a algo muito maior.
       </p>
+
       <p>
         Eles trocaram suas primeiras mensagens no dia <strong>12/06/2025, às 06:35</strong>. Pouco tempo depois, a agência da qual Sparkle_atv fazia parte foi hackeada, o que acabou abrindo espaço para novas ideias e possibilidades.
       </p>
+
       <p>
         Em <strong>14/06/2025</strong>, uma conversa entre os dois demonstrava o desejo de começar algo novo:
       </p>
@@ -695,87 +854,110 @@ footer p{
       </p>
 
       <h3>⭐ O nascimento da agência</h3>
+
       <p>
         Com aquela conversa, nasceu a <strong>Néoro – Agência de VTubers Iniciantes</strong>.
       </p>
+
       <p>
         Inicialmente, o grupo começou com quatro membros. Apesar da empolgação e das expectativas, o projeto também enfrentou dificuldades, e acabamos perdendo um dos integrantes.
       </p>
+
       <p>
         Com o passar do tempo, Sparkle_atv começou a se afastar e chegou a cogitar desistir de ser VTuber.
       </p>
 
       <div class="citacao">
         <strong>Sparkle_atv — 19/09/2025, às 00:48:</strong><br>
-        "@Starkiller eu tô querendo desistir de ser VTuber."
+        “@Starkiller eu tô querendo desistir de ser VTuber.”
       </div>
 
       <p>
         Mesmo diante dessas dificuldades, Michelle decidiu não abandonar o projeto.
       </p>
+
       <p>
         No dia <strong>19/09/2025</strong>, ela fez uma postagem simples anunciando um recomeço. No dia seguinte, publicou um vídeo apresentando oficialmente a agência.
       </p>
+
       <p>
         A partir daquele momento, a Néoro começou uma nova etapa, agora com Michelle assumindo a responsabilidade de continuar o projeto.
       </p>
 
       <h3>🌟 Crescimento e consolidação</h3>
+
       <p>
         Com dedicação, paciência e muitas ideias, a agência começou a crescer.
       </p>
+
       <p>
         Novos VTubers chegaram, algumas pessoas conhecidas se juntaram ao projeto e outras apareceram trazendo novas experiências, talentos e amizades.
       </p>
+
       <p>
         Ao longo dessa caminhada, tivemos pessoas que ajudaram bastante, participaram das atividades e contribuíram para que a Néoro se tornasse algo maior do que sua ideia inicial.
       </p>
+
       <p>
         Também houve mudanças na equipe, pessoas que seguiram outros caminhos e integrantes que permaneceram ao nosso lado.
       </p>
+
       <p>
         Para dar mais visibilidade ao projeto, Michelle criou um site simples, desenvolvido com muito carinho e dedicação, para apresentar a agência, seus integrantes e suas atividades.
       </p>
+
       <p>
         Mesmo sendo um projeto pequeno, cada atualização, publicação e conquista representava mais um passo para construir aquilo que imaginávamos desde o início.
       </p>
 
       <h3>💫 2026 — Uma nova fase</h3>
+
       <p>
         Em 2026, a Néoro voltou com novidades!
       </p>
+
       <p>
         Novos membros chegaram, antigos integrantes retornaram e algumas pessoas que já faziam parte da nossa história continuaram contribuindo para o projeto.
       </p>
+
       <p>
         Entre aqueles que permanecem, temos <strong>Puki</strong>, que continua conosco até hoje, além de <strong>Michelle</strong>, que segue como criadora e responsável pelo projeto.
       </p>
+
       <p>
         Com o passar do tempo, percebemos que a Néoro já não precisava ser apenas uma agência.
       </p>
+
       <p>
         Nossa proposta mudou, assim como nossa forma de enxergar o grupo.
       </p>
+
       <p>
         Por isso, deixamos para trás o nome <em>Néoro Agência</em> e passamos a utilizar <strong>Néoro Creative</strong>.
       </p>
+
       <p>
         Hoje, não somos apenas uma agência que reúne VTubers. Somos um grupo unido, formado por pessoas com diferentes experiências, ideias e projetos.
       </p>
+
       <p>
         Temos VTubers, criadores de PNGs e até pessoas que fazem parte de outras comunidades. Não precisamos que todos tenham exatamente o mesmo tipo de conteúdo ou sigam o mesmo caminho para fazer parte desse espaço.
       </p>
+
       <p>
         O mais importante é a <strong>união</strong>, o <strong>respeito</strong> e a vontade de compartilhar aquilo que fazemos.
       </p>
 
       <div class="destaque">
         <strong>📢 O que somos atualmente?</strong>
-        <br><br>
-        A Néoro Creative é um grupo que busca dar visibilidade aos seus integrantes e aos projetos que cada um desenvolve.
-        <br><br>
-        Nosso canal será utilizado para compartilhar:
-        <ul style="margin: 10px 0 0 20px; padding: 0;">
+
+        <p>
+          A Néoro Creative é um grupo que busca dar visibilidade aos seus integrantes e aos projetos que cada um desenvolve.
+        </p>
+
+        <p><strong>Nosso canal será utilizado para compartilhar:</strong></p>
+
+        <ul>
           <li>Notícias sobre nossos integrantes.</li>
           <li>Curiosidades sobre os membros e seus personagens.</li>
           <li>Novidades dos nossos projetos.</li>
@@ -783,45 +965,54 @@ footer p{
           <li>Atualizações sobre atividades e acontecimentos do grupo.</li>
           <li>Conteúdos relacionados às nossas comunidades e criações.</li>
         </ul>
-        <br>
-        Queremos que as pessoas conheçam não apenas os projetos, mas também quem está por trás deles.
-        <br><br>
-        A Néoro Creative não é apenas um nome ou um servidor: é uma história construída por várias pessoas.
+
+        <p>
+          Queremos que as pessoas conheçam não apenas os projetos, mas também quem está por trás deles.
+        </p>
+
+        <p>
+          A Néoro Creative não é apenas um nome ou um servidor: é uma história construída por várias pessoas.
+        </p>
       </div>
 
       <div class="mensagem">
         <h3 style="margin-top:0;">💜 Uma mensagem da criadora</h3>
 
-        <p>
-          Quando olho para trás, vejo o quanto tudo mudou.
-        </p>
+        <p>Quando olho para trás, vejo o quanto tudo mudou.</p>
+
         <p>
           A Néoro começou com uma conversa entre duas pessoas que tinham vontade de criar alguma coisa juntas. Naquela época, eu não imaginava quantas pessoas conheceria, quantas amizades faria ou quantas experiências viveria por causa desse projeto.
         </p>
+
         <p>
           Hoje, já estou com 19 anos e continuo aqui, acompanhando essa história que começou em 2025.
         </p>
+
         <p>
           Foi muito bom conhecer tantas pessoas durante essa caminhada. Algumas participaram por pouco tempo, outras ficaram por mais tempo, algumas seguiram seus próprios caminhos e outras chegaram recentemente.
         </p>
+
         <p>
           Independentemente de quanto tempo cada pessoa permaneceu, todas fizeram parte de algum capítulo dessa história.
         </p>
+
         <p>
           Quero agradecer a todos que já participaram da Néoro, aos que ajudaram a construir o projeto, aos que permaneceram e aos que estão chegando agora.
         </p>
+
         <p>
           Cada pessoa deixou alguma contribuição, seja uma ideia, uma ajuda, uma amizade ou simplesmente um momento que ficará guardado.
         </p>
+
         <p>
           Não sabemos exatamente o que o futuro reserva para a Néoro Creative, mas sabemos que ela continuará sendo um espaço para compartilhar ideias, projetos e experiências.
         </p>
+
         <p>
           De uma pequena ideia entre dois amigos, nasceu um projeto que conheceu muitas pessoas e passou por várias transformações.
         </p>
-        <p>
-          E essa história ainda não acabou.
-        </p>
+
+        <p>E essa história ainda não acabou.</p>
 
         <p class="assinatura">— Michelle, criadora da Néoro Creative. 💜✨</p>
       </div>
@@ -842,7 +1033,6 @@ footer p{
 
     <div class="grid">
 
-      <!-- ORIEL -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Oriel.jpeg" alt="Foto do personagem Oriel">
@@ -859,7 +1049,6 @@ footer p{
         </div>
       </article>
 
-      <!-- PUKI -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Puki.jpeg" alt="Foto do personagem Puki">
@@ -876,7 +1065,6 @@ footer p{
         </div>
       </article>
 
-      <!-- ZEZE -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Zeze.jpeg" alt="Foto do personagem Zeze">
@@ -892,7 +1080,6 @@ footer p{
         </div>
       </article>
 
-      <!-- SPACE -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Space.jpeg" alt="Foto do personagem Space">
@@ -909,7 +1096,6 @@ footer p{
         </div>
       </article>
 
-      <!-- YUKI -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Yuki.jpeg" alt="Foto do personagem Yuki">
@@ -925,7 +1111,6 @@ footer p{
         </div>
       </article>
 
-      <!-- DRAGON -->
       <article class="membro">
         <div class="membro-foto">
           <img src="Dragon.jpeg" alt="Foto do personagem Dragon">
@@ -960,7 +1145,7 @@ footer p{
     <div class="grid">
 
       <article class="projeto">
-        <img src="Biblioteca.jpeg" alt="foto da capa do projeto">
+        <img src="Biblioteca.jpeg" alt="Foto da capa do projeto Biblioteca VTuber">
         <span class="tag">Projeto de Oriel</span>
         <h3>Biblioteca VTuber</h3>
         <p>Um espaço criado por Oriel para reunir conteúdos, recursos e informações relacionados a VTubers.</p>
@@ -968,7 +1153,7 @@ footer p{
       </article>
 
       <article class="projeto">
-         <img src="Comissões.jpeg" alt="foto da capa do projeto">
+        <img src="comissoes.jpeg" alt="Foto da capa do projeto Comissões">
         <span class="tag">Projeto de Oriel</span>
         <h3>Comissões</h3>
         <p>Página de comissões de Oriel, com informações sobre serviços e trabalhos personalizados.</p>
@@ -976,7 +1161,7 @@ footer p{
       </article>
 
       <article class="projeto">
-        <img src="SpaceLegacy.jpeg" alt="foto da capa do projeto">
+        <img src="SpaceLegacy.jpeg" alt="Foto da capa do projeto SpaceLegacy Studio Wiki">
         <span class="tag">Projeto de Space</span>
         <h3>SpaceLegacy Studio Wiki</h3>
         <p>Wiki do projeto SpaceLegacy Studio, criada para reunir informações e conteúdos do universo do Space.</p>
@@ -1025,6 +1210,61 @@ footer p{
 
 </div>
 
+<!-- ABA FANARTS -->
+<div id="fanarts" class="aba">
+
+  <section class="bloco">
+    <div class="cabecalho">
+      <div class="tag">🎨 Fanarts dos fãs</div>
+      <h2>Fanarts</h2>
+      <p>Um cantinho especial para celebrar os desenhos feitos com carinho pelos fãs da Néoro Creative.</p>
+    </div>
+
+    <div class="fanarts-grid">
+
+      <div class="fanart" onclick="abrirFanart(this)">
+        <img src="fanart1.jpeg" alt="Fanart do Oriel">
+        <div class="fanart-info">
+          <strong>Fanart do Oriel</strong>
+          <span>por Nome do fã</span>
+        </div>
+      </div>
+
+      <div class="fanart" onclick="abrirFanart(this)">
+        <img src="fanart2.jpeg" alt="Fanart da Puki">
+        <div class="fanart-info">
+          <strong>Fanart da Puki</strong>
+          <span>por Nome do fã</span>
+        </div>
+      </div>
+
+      <div class="fanart" onclick="abrirFanart(this)">
+        <img src="fanart3.jpeg" alt="Fanart do Space">
+        <div class="fanart-info">
+          <strong>Fanart do Space</strong>
+          <span>por Nome do fã</span>
+        </div>
+      </div>
+
+      <div class="fanart" onclick="abrirFanart(this)">
+        <img src="fanart4.jpeg" alt="Fanart do Dragon">
+        <div class="fanart-info">
+          <strong>Fanart do Dragon</strong>
+          <span>por Nome do fã</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- JANELA DA FANART -->
+<div class="lightbox" id="lightbox" onclick="fecharFanart(event)">
+  <button class="lightbox-fechar" onclick="fecharFanart(event)">✕</button>
+  <img id="lightbox-img" src="" alt="Fanart ampliada">
+</div>
+
 <footer>
   <div class="logo">
     <div class="logo-mark">♡</div>
@@ -1052,6 +1292,24 @@ function abrirAba(id, botao){
     top: 0,
     behavior: 'smooth'
   });
+}
+
+function abrirFanart(card){
+  const imagem = card.querySelector('img');
+  const lightbox = document.getElementById('lightbox');
+  const imagemAmpliada = document.getElementById('lightbox-img');
+
+  imagemAmpliada.src = imagem.src;
+  imagemAmpliada.alt = imagem.alt;
+
+  lightbox.classList.add('ativo');
+}
+
+function fecharFanart(event){
+  event.stopPropagation();
+
+  const lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('ativo');
 }
 </script>
 
