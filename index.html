@@ -670,6 +670,13 @@ section.bloco{
   color:var(--texto-suave);
 }
 
+/* GIF DO ROBERTO SEM CORTE */
+.fanart img[src="roberto.gif"]{
+  aspect-ratio:auto;
+  object-fit:contain;
+  background:var(--rosa-claro);
+}
+
 /* JANELA DA FANART */
 .lightbox{
   position:fixed;
@@ -1216,6 +1223,15 @@ footer p{
     </div>
 
     <div class="fanarts-grid">
+
+      <!-- FANART DO ROBERTO -->
+      <div class="fanart" onclick="abrirFanart(this)">
+        <img src="roberto.gif" alt="Fanart em GIF do mascote Roberto, feita por Sasu">
+        <div class="fanart-info">
+          <strong>Roberto — Mascote da Néoro</strong>
+          <span>Fanart por Sasu</span>
+        </div>
+      </div>
 
       <div class="fanart" onclick="abrirFanart(this)">
         <img src="fanart1.jpeg" alt="Fanart do Oriel">
