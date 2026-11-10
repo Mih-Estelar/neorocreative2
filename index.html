@@ -605,17 +605,16 @@ section.bloco{
   margin-bottom:18px;
 }
 
-/* FANARTS */
+/* FANARTS (CARD COM DESTAQUE PARA O ARTISTA) */
 .fanarts-grid{
   max-width:1120px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+  gap:22px;
 }
 
 .fanart{
-  position:relative;
   border-radius:26px;
   overflow:hidden;
   background:#fff;
@@ -623,6 +622,8 @@ section.bloco{
   box-shadow:var(--sombra);
   cursor:zoom-in;
   transition:.3s;
+  display:flex;
+  flex-direction:column;
 }
 
 .fanart:hover{
@@ -630,46 +631,67 @@ section.bloco{
   box-shadow:var(--sombra-fofa);
 }
 
-.fanart img,
-.fanart video{
-  width:100%;
+.fanart-midia{
+  position:relative;
   aspect-ratio:1/1;
+  overflow:hidden;
+  background:linear-gradient(160deg, var(--azul-claro), var(--rosa-claro));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.fanart-midia img,
+.fanart-midia video{
+  width:100%;
+  height:100%;
   object-fit:cover;
   display:block;
   transition:.45s;
 }
 
-.fanart:hover img,
-.fanart:hover video{
+.fanart:hover .fanart-midia img,
+.fanart:hover .fanart-midia video{
   transform:scale(1.06);
 }
 
 .fanart-info{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:40px 16px 14px;
-  background:linear-gradient(to top, rgba(255,255,255,.95), transparent);
+  padding:16px 18px 18px;
   text-align:center;
-  opacity:0;
-  transition:.3s;
-}
-
-.fanart:hover .fanart-info{
-  opacity:1;
+  background:#fff;
+  border-top:1px solid rgba(122,129,148,.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
 }
 
 .fanart-info strong{
-  display:block;
   font-family:"Baloo 2", sans-serif;
   color:var(--azul);
-  font-size:16px;
+  font-size:17px;
+  line-height:1.2;
 }
 
-.fanart-info span{
+/* ETIQUETA EM DESTAQUE DO ARTISTA */
+.artista-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--rosa-claro);
+  color:var(--rosa);
+  border:1px solid var(--rosa-suave);
+  padding:5px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.2px;
+  box-shadow:0 4px 10px rgba(242,125,147,.15);
+}
+
+.artista-tag::before{
+  content:"🎨";
   font-size:12px;
-  color:var(--texto-suave);
 }
 
 /* JANELA DA FANART */
@@ -1221,50 +1243,64 @@ footer p{
 
     <div class="fanarts-grid">
 
-      <!-- FANART DO ROBERTO (VÍDEO MP4 / GIF DO WHATSAPP) -->
+      <!-- FANART DO ROBERTO (VÍDEO MP4 / GIF) -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <video 
-          src="roberto.mp4" 
-          autoplay 
-          muted 
-          loop 
-          playsinline
-        ></video>
+        <div class="fanart-midia">
+          <video 
+            src="roberto.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+          ></video>
+        </div>
         <div class="fanart-info">
-          <strong>Roberto — Mascote da Néoro</strong>
-          <span>Fanart por Sasu</span>
+          <strong>Roberto (Mascote)</strong>
+          <span class="artista-tag">Arte por Sasu</span>
         </div>
       </div>
 
+      <!-- FANART 1 -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <img src="fanart1.jpeg" alt="Fanart do Oriel">
+        <div class="fanart-midia">
+          <img src="fanart1.jpeg" alt="Fanart do Oriel">
+        </div>
         <div class="fanart-info">
           <strong>Fanart do Oriel</strong>
-          <span>por Nome do fã</span>
+          <span class="artista-tag">Arte por Nome do fã</span>
         </div>
       </div>
 
+      <!-- FANART 2 -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <img src="fanart2.jpeg" alt="Fanart da Puki">
+        <div class="fanart-midia">
+          <img src="fanart2.jpeg" alt="Fanart da Puki">
+        </div>
         <div class="fanart-info">
           <strong>Fanart da Puki</strong>
-          <span>por Nome do fã</span>
+          <span class="artista-tag">Arte por Nome do fã</span>
         </div>
       </div>
 
+      <!-- FANART 3 -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <img src="fanart3.jpeg" alt="Fanart do Space">
+        <div class="fanart-midia">
+          <img src="fanart3.jpeg" alt="Fanart do Space">
+        </div>
         <div class="fanart-info">
           <strong>Fanart do Space</strong>
-          <span>por Nome do fã</span>
+          <span class="artista-tag">Arte por Nome do fã</span>
         </div>
       </div>
 
+      <!-- FANART 4 -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <img src="fanart4.jpeg" alt="Fanart do Dragon">
+        <div class="fanart-midia">
+          <img src="fanart4.jpeg" alt="Fanart do Dragon">
+        </div>
         <div class="fanart-info">
           <strong>Fanart do Dragon</strong>
-          <span>por Nome do fã</span>
+          <span class="artista-tag">Arte por Nome do fã</span>
         </div>
       </div>
 
@@ -1273,7 +1309,7 @@ footer p{
 
 </div>
 
-<!-- JANELA DA FANART (LIGHTBOX PARA IMAGEM OU VÍDEO) -->
+<!-- JANELA DA FANART (LIGHTBOX) -->
 <div class="lightbox" id="lightbox" onclick="fecharFanart(event)">
   <button class="lightbox-fechar" onclick="fecharFanart(event)">✕</button>
   <img id="lightbox-img" src="" alt="Fanart ampliada" style="display:none;">
