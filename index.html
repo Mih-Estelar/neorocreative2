@@ -630,7 +630,8 @@ section.bloco{
   box-shadow:var(--sombra-fofa);
 }
 
-.fanart img{
+.fanart img,
+.fanart video{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
@@ -638,7 +639,8 @@ section.bloco{
   transition:.45s;
 }
 
-.fanart:hover img{
+.fanart:hover img,
+.fanart:hover video{
   transform:scale(1.06);
 }
 
@@ -670,13 +672,6 @@ section.bloco{
   color:var(--texto-suave);
 }
 
-/* GIF DO ROBERTO SEM CORTE */
-.fanart img[src="roberto.gif"]{
-  aspect-ratio:auto;
-  object-fit:contain;
-  background:var(--rosa-claro);
-}
-
 /* JANELA DA FANART */
 .lightbox{
   position:fixed;
@@ -693,12 +688,14 @@ section.bloco{
   display:grid;
 }
 
-.lightbox img{
+.lightbox img,
+.lightbox video{
   max-width:min(90vw, 760px);
   max-height:82vh;
   border-radius:26px;
   box-shadow:0 25px 60px rgba(0,0,0,.35);
   border:6px solid #fff;
+  background:#fff;
 }
 
 .lightbox-fechar{
@@ -1224,9 +1221,15 @@ footer p{
 
     <div class="fanarts-grid">
 
-      <!-- FANART DO ROBERTO -->
+      <!-- FANART DO ROBERTO (VÍDEO MP4 / GIF DO WHATSAPP) -->
       <div class="fanart" onclick="abrirFanart(this)">
-        <img src="roberto.gif" alt="Fanart em GIF do mascote Roberto, feita por Sasu">
+        <video 
+          src="roberto.mp4" 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+        ></video>
         <div class="fanart-info">
           <strong>Roberto — Mascote da Néoro</strong>
           <span>Fanart por Sasu</span>
@@ -1270,10 +1273,11 @@ footer p{
 
 </div>
 
-<!-- JANELA DA FANART -->
+<!-- JANELA DA FANART (LIGHTBOX PARA IMAGEM OU VÍDEO) -->
 <div class="lightbox" id="lightbox" onclick="fecharFanart(event)">
   <button class="lightbox-fechar" onclick="fecharFanart(event)">✕</button>
-  <img id="lightbox-img" src="" alt="Fanart ampliada">
+  <img id="lightbox-img" src="" alt="Fanart ampliada" style="display:none;">
+  <video id="lightbox-video" src="" autoplay muted loop playsinline style="display:none;"></video>
 </div>
 
 <footer>
@@ -1306,12 +1310,24 @@ function abrirAba(id, botao){
 }
 
 function abrirFanart(card){
-  const imagem = card.querySelector('img');
   const lightbox = document.getElementById('lightbox');
-  const imagemAmpliada = document.getElementById('lightbox-img');
+  const imgAmpliada = document.getElementById('lightbox-img');
+  const videoAmpliado = document.getElementById('lightbox-video');
 
-  imagemAmpliada.src = imagem.src;
-  imagemAmpliada.alt = imagem.alt;
+  const imgOrigem = card.querySelector('img');
+  const videoOrigem = card.querySelector('video');
+
+  if(videoOrigem){
+    imgAmpliada.style.display = 'none';
+    videoAmpliado.src = videoOrigem.src;
+    videoAmpliado.style.display = 'block';
+    videoAmpliado.play();
+  } else if(imgOrigem){
+    videoAmpliado.style.display = 'none';
+    imgAmpliada.src = imgOrigem.src;
+    imgAmpliada.alt = imgOrigem.alt;
+    imgAmpliada.style.display = 'block';
+  }
 
   lightbox.classList.add('ativo');
 }
@@ -1320,6 +1336,9 @@ function fecharFanart(event){
   event.stopPropagation();
 
   const lightbox = document.getElementById('lightbox');
+  const videoAmpliado = document.getElementById('lightbox-video');
+
+  videoAmpliado.pause();
   lightbox.classList.remove('ativo');
 }
 </script>
